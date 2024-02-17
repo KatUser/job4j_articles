@@ -6,6 +6,7 @@ import ru.job4j.articles.model.Word;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RandomArticleGenerator implements ArticleGenerator {
     @Override
@@ -14,8 +15,7 @@ public class RandomArticleGenerator implements ArticleGenerator {
         Collections.shuffle(wordsCopy);
         var content = wordsCopy.stream()
                 .map(Word::getValue)
-                .toString()
-                .concat(" ");
+                .collect(Collectors.joining(" "));
         return new Article(content);
     }
 }
