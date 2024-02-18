@@ -60,7 +60,7 @@ public class WordStore implements Store<Word>, AutoCloseable {
             var sql = Files.readString(Path.of("db/scripts", "words.sql"));
             statement.executeLargeUpdate(sql);
         } catch (Exception e) {
-            LOGGER.error("Не удалось выполнить операцию : { }", e.getCause());
+            LOGGER.error("Не удалось выполнить операцию: { }", e.getCause());
             throw new IllegalStateException();
         }
     }
